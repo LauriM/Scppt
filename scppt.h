@@ -1,5 +1,10 @@
 #include <stdio.h>
 
+/*
+ * TODO:
+ * Change prefix on all internal defines so they won't conflict.
+ */
+
 #define _TO_STRING(value) #value
 #define TO_STRING(value) _TO_STRING(value)
 
@@ -15,14 +20,12 @@
 
 #define PRINTLN(p_msg) printf(p_msg"\n");
 
-#define SCPPT_TEST(p_name,p_var1,p_check,p_var2) LINEINFO PRINT("< "p_name" > ") \
+#define SCPPT_COMPARE(p_name,p_var1,p_check,p_var2) LINEINFO PRINT("< "p_name" > ") \
 	if(p_var1 p_check p_var2){ \
 		OK\
 	}else{\
 		FAIL\
 	}
 
-#define EQUALS(p_name,p_var1,p_var2)
-
 #define SCPPT_START int testFails = 0; int testOks   = 0;
-#define SCPPT_END printf("Fails: %i Oks: %i\n",testFails,testOks);
+#define SCPPT_END printf("Ok: %i Fail: %i\n",testOks,testFails);
