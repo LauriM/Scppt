@@ -1,8 +1,10 @@
+#include <time.h>
 #include <stdio.h>
 
 /*
  * TODO:
  * Change prefix on all internal defines so they won't conflict.
+ * Also, all internal variables.
  */
 
 #define _TO_STRING(value) #value
@@ -27,5 +29,8 @@
 		FAIL\
 	}
 
-#define SCPPT_START int testFails = 0; int testOks   = 0;
-#define SCPPT_END printf("Ok: %i Fail: %i\n",testOks,testFails);
+#define SCPPT_START int testFails = 0; int testOks = 0; clock_t scppt_starttime = clock();
+#define SCPPT_END printf("Ok: %i Fail: %i\n",testOks,testFails); \
+	clock_t scppt_exectime = clock() - scppt_starttime;\
+	double scppt_time = ((double)scppt_exectime)/CLOCKS_PER_SEC;\
+	printf("Exec time: %f\n",scppt_time);
