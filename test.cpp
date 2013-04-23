@@ -12,14 +12,14 @@ int main(){
 
 	ECHO("raiseNumber()");
 
-	int n = 1000000;
-	  int i,j;
-	    int freq=n-1;
-		  for (i=2; i<=n; ++i) for (j=sqrt(i);j>1;--j) if (i%j==0) {--freq; break;}
 
 	SCPPT_COMPARE("raise 5",raiseNumber(5),==,10);
 	SCPPT_COMPARE("5 smaller than",5,<,10);
 	SCPPT_COMPARE("5 greater than",5,>,3);
+
+	SCPPT_COMPARE("Primes exectues 1000",countPrimes(1000),>,0);
+	SCPPT_COMPARE("Primes executes 10000",countPrimes(10000),>,0);
+	SCPPT_COMPARE("Primes executes 100000",countPrimes(100000),>,0);
 
 	ECHO("Tests complete");
 	SCPPT_END;
